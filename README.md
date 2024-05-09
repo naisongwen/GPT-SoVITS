@@ -255,6 +255,14 @@ Special thanks to the following projects and contributors:
 - [gradio](https://github.com/gradio-app/gradio)
 - [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
 - [FunASR](https://github.com/alibaba-damo-academy/FunASR)
+
+### startups
+- mkdir -p /data/workdir
+- python simple_webui.py
+
+### online WebUI Tools
+
+- [online AI tools website,including GPT-SoVITS](https://www.mindtechassist.com/)
   
 ## Thanks to all contributors for their efforts
 
