@@ -684,7 +684,7 @@ def close1abc():
 
 p_train=None
 def start_train(voice_id,audio_input_path,sovits_total_epoch,gpt_total_epoch):
-    cmd='%s train_gpt_sovits.py %s %s %s %s'%(python_exec,voice_id,audio_input_path,sovits_total_epoch,gpt_total_epoch)
+    cmd='"%s" train_gpt_sovits.py "%s" "%s" %s %s'%(python_exec,voice_id,audio_input_path,sovits_total_epoch,gpt_total_epoch)
     print(cmd)
     global p_train
     if(p_train==None):
@@ -709,18 +709,18 @@ def inference(voice_id,gpt_model,sovits_model,ref_audio_path,ref_audio_text,text
     text_file=f'{voice_id}.txt'
     with open(text_file, "w") as f:
         f.write(text)
-    cmd="%s GPT_SoVITS/inference_console2.py --voice_id %s --input_txt_path %s"%(python_exec,voice_id,text_file)
+    cmd='"%s" GPT_SoVITS/inference_console2.py --voice_id %s --input_txt_path "%s"'%(python_exec,voice_id,text_file)
     if how_to_cut:
         cmd=cmd+f' --split'
     if gpt_model !='':
-        cmd=cmd+f' --gpt_path {gpt_model}'
+        cmd=cmd+f' --gpt_path "{gpt_model}"'
     if sovits_model !='':
-        cmd=cmd+f' --sovits_path {sovits_model}'
+        cmd=cmd+f' --sovits_path "{sovits_model}"'
 
     if ref_audio_path !='':
-        cmd=cmd+f' --ref_audio_path {ref_audio_path}'
+        cmd=cmd+f' --ref_audio_path "{ref_audio_path}"'
     if ref_audio_text !='':
-        cmd=cmd+f" --ref_audio_text '{ref_audio_text}'"
+        cmd=cmd+f' --ref_audio_text "{ref_audio_text}"'
 
     global p_inference
     if(p_inference==None):
