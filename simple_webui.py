@@ -709,7 +709,7 @@ def close_train():
 p_inference=None
 def inference(voice_id,gpt_model,sovits_model,ref_audio_path,ref_audio_text,text,how_to_cut):
     text_file=f'{voice_id}.txt'
-    with open(text_file, "w") as f:
+    with open(text_file, "w", encoding='utf-8') as f:
         f.write(text)
     cmd='"%s" GPT_SoVITS/inference_console2.py --voice_id %s --input_txt_path "%s"'%(python_exec,voice_id,text_file)
     if how_to_cut:
