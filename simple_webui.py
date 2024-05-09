@@ -94,7 +94,9 @@ pretrained_gpt_name="GPT_SoVITS/pretrained_models/s1bert25hz-2kh-longer-epoch=68
 
 def get_voices():
     voices=[]
-    for name in os.listdir(root_dir):
+    from pathlib import Path
+    voices_dir=str(Path(root_dir).resolve())
+    for name in os.listdir(voices_dir):
         voices.append(name)
     return voices
 
